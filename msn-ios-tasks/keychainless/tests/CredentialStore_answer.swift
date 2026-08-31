@@ -5,12 +5,6 @@ enum KeychainError: Error {
     case unableToStore(OSStatus)
 }
 
-/// FIXED credential storage.
-///
-/// The auth token and password are stored in the Keychain instead of
-/// UserDefaults, with kSecAttrAccessibleWhenUnlockedThisDeviceOnly so the
-/// items are only available while the device is unlocked and never leave
-/// this device (not included in backups/migrations).
 final class CredentialStore {
 
     func saveToken(_ authToken: String) throws {
@@ -33,7 +27,7 @@ final class CredentialStore {
             kSecValueData as String: data,
             kSecAttrAccessible as String: kSecAttrAccessibleWhenUnlockedThisDeviceOnly
         ]
-        SecItemDelete(query as CFDictionary) // overwrite if it already exists
+        SecItemDelete(query as CFDictionary)
         let status = SecItemAdd(query as CFDictionary, nil)
         guard status == errSecSuccess else { throw KeychainError.unableToStore(status) }
     }

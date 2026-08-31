@@ -4,11 +4,6 @@ import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 
-/**
- * Secure session storage with encryption and restricted file permissions.
- * The authorization token is encrypted at rest and stored in a file
- * that is only readable by this application.
- */
 class SessionStore(private val context: Context) {
 
     private fun getEncryptedPreferences() = EncryptedSharedPreferences.create(

@@ -4,13 +4,6 @@ import android.content.Context
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 
-/**
- * FIXED session storage.
- *
- * The prefs file is created with MODE_PRIVATE (accessible only to this app)
- * and the token is stored via EncryptedSharedPreferences, backed by a key
- * in the Android Keystore, instead of in plaintext.
- */
 class SessionStore(private val context: Context) {
 
     private val masterKey = MasterKey.Builder(context)

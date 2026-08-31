@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    VULNERABLE App Links configuration. See README.md for the task
-    description and acceptance criteria.
--->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobsec.deeplink">
 

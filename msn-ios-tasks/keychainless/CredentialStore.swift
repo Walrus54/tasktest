@@ -1,15 +1,6 @@
 import Foundation
 import Security
 
-/// Secure credential storage backed by the iOS Keychain.
-///
-/// Credentials are stored as generic-password Keychain items protected with
-/// `kSecAttrAccessibleWhenUnlockedThisDeviceOnly`. That protection class keeps
-/// the items readable only while the device is unlocked AND excludes them from
-/// device backups (iTunes/Finder/iCloud) as well as device-to-device migration.
-/// Unlike `UserDefaults`, which is serialized to a plaintext plist that lands in
-/// backups verbatim, Keychain items are encrypted by the Secure Enclave / data
-/// protection keys and never leak through an unencrypted backup.
 final class CredentialStore {
 
     private let service = "com.example.keychainless.credentials"
@@ -55,8 +46,6 @@ final class CredentialStore {
     private func save(_ value: String, account: String) {
         guard let data = value.data(using: .utf8) else { return }
 
-        // Idempotent write: drop any existing item, then insert the new one so
-        // we never accumulate duplicates or leave stale credentials behind.
         var query = baseQuery(account: account)
         SecItemDelete(query as CFDictionary)
 

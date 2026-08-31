@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    FIXED App Links configuration.
-
-    android:autoVerify="true" makes the OS verify domain ownership via the
-    assetlinks.json well-known file before granting this app the link, so a
-    rogue app registering the same host no longer intercepts it. android:path
-    matches only the exact path this activity actually handles.
--->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mobsec.deeplink">
 
