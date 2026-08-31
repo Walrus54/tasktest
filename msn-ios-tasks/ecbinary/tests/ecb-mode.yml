@@ -1,0 +1,11 @@
+rules:
+  - id: aes-ecb-mode-used
+    pattern: kCCOptionECBMode
+    message: "AES ECB mode used - identical plaintext blocks produce identical ciphertext blocks, no IV/nonce, no authentication"
+    severity: ERROR
+    languages:
+      - swift
+    metadata:
+      category: security
+      cwe: "CWE-327: Use of a Broken or Risky Cryptographic Algorithm"
+      owasp: "M10: Insufficient Cryptography"

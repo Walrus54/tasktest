@@ -1,0 +1,18 @@
+rules:
+  - id: android-plaintext-token-storage
+    patterns:
+      - pattern: $PREFS.edit().putString("auth_token", $TOKEN)
+      - pattern-not-inside: |
+          import androidx.security.crypto.EncryptedSharedPreferences
+          ...
+      - pattern-not-inside: |
+          import javax.crypto.Cipher
+          ...
+    message: "Auth token stored directly via putString without any encryption applied to the value"
+    severity: ERROR
+    languages:
+      - kotlin
+    metadata:
+      category: security
+      cwe: "CWE-311: Missing Encryption of Sensitive Data"
+      owasp: "M2: Inadequate Supply Chain Security"

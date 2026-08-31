@@ -1,0 +1,11 @@
+rules:
+  - id: hardcoded-crypto-key
+    pattern: '"...".data(using: .utf8)!'
+    message: "A string literal is converted to Data - if this feeds a crypto key or KDF password anywhere downstream, the key material is trivially recoverable from the binary regardless of any KDF wrapping applied afterwards"
+    severity: ERROR
+    languages:
+      - swift
+    metadata:
+      category: security
+      cwe: "CWE-798: Use of Hard-coded Credentials"
+      owasp: "M10: Insufficient Cryptography"

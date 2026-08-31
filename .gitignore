@@ -1,0 +1,11 @@
+# test artifacts
+**/tests/report.json
+**/tests/results_*.json
+**/__pycache__/
+*.pyc
+
+# nested repo backup
+msn-android-tasks/.git.disabled/
+
+# editor/local
+.claude/

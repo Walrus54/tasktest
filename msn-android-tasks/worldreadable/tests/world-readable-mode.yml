@@ -1,0 +1,11 @@
+rules:
+  - id: android-world-readable-mode
+    pattern: Context.MODE_WORLD_READABLE
+    message: "SharedPreferences opened with deprecated MODE_WORLD_READABLE - file is readable by all apps"
+    severity: ERROR
+    languages:
+      - kotlin
+    metadata:
+      category: security
+      cwe: "CWE-732: Incorrect Permission Assignment for Critical Resource"
+      owasp: "M2: Inadequate Supply Chain Security"

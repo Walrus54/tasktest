@@ -1,0 +1,20 @@
+rules:
+  - id: android-deeplink-no-autoverify
+    patterns:
+      - pattern-inside: |
+          <intent-filter>
+            ...
+          </intent-filter>
+      - pattern: <data android:scheme="https" ... />
+      - pattern-not-inside: |
+          <intent-filter android:autoVerify="true" ...>
+            ...
+          </intent-filter>
+    message: "HTTPS deep link intent-filter without android:autoVerify=\"true\" allows link hijacking by other apps"
+    severity: ERROR
+    languages:
+      - xml
+    metadata:
+      category: security
+      cwe: "CWE-939: Improper Authorization in Handler for Custom URL Scheme"
+      owasp: "M1: Improper Platform Usage"

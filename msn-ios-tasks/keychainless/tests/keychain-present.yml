@@ -1,0 +1,15 @@
+rules:
+  - id: credential-storage-present
+    pattern-either:
+      - pattern: 'UserDefaults.standard.set($VAL, forKey: $KEY)'
+      - pattern: SecItemAdd(...)
+      - pattern: SecItemUpdate(...)
+      - pattern: '$KEYCHAIN.set($VAL, key: $KEY)'
+      - pattern: 'try $KEYCHAIN.set($VAL, key: $KEY)'
+      - pattern: 'try? $KEYCHAIN.set($VAL, key: $KEY)'
+    message: "Credential storage API is used"
+    severity: INFO
+    languages:
+      - swift
+    metadata:
+      category: correctness

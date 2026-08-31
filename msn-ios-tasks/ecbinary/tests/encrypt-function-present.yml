@@ -1,0 +1,13 @@
+rules:
+  - id: encrypt-function-present
+    pattern-either:
+      - pattern: CCCrypt(...)
+      - pattern: CCCryptorCreate(...)
+      - pattern: AES.GCM.seal(...)
+      - pattern: ChaChaPoly.seal(...)
+    message: "a real crypto primitive call is present"
+    severity: INFO
+    languages:
+      - swift
+    metadata:
+      category: correctness

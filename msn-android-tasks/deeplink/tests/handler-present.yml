@@ -1,0 +1,18 @@
+rules:
+  - id: android-deeplink-handler-present
+    patterns:
+      - pattern-inside: |
+          <activity android:name=".ResetPasswordActivity" ...>
+            ...
+          </activity>
+      - pattern-inside: |
+          <intent-filter ...>
+            ...
+          </intent-filter>
+      - pattern: <data android:scheme="https" android:host="mobsec.app" ... />
+    message: "ResetPasswordActivity has an https://mobsec.app intent-filter"
+    severity: INFO
+    languages:
+      - xml
+    metadata:
+      category: correctness

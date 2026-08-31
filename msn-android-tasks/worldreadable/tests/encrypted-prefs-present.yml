@@ -1,0 +1,11 @@
+rules:
+  - id: shared-preferences-api-used
+    pattern-either:
+      - pattern: $CONTEXT.getSharedPreferences(...)
+      - pattern: EncryptedSharedPreferences.create(...)
+    message: "SharedPreferences API is used"
+    severity: INFO
+    languages:
+      - kotlin
+    metadata:
+      category: correctness
