@@ -48,7 +48,7 @@ def generate_report():
     f_ok = f_pass == len(functional_tests)
     s_ok = s_pass == len(security_tests)
 
-    status = "Success" if f_ok and s_ok else ("Broken" if not f_ok else "Vulnerable")
+    status = "Success" if f_ok and s_ok else ("Broken" if not f_ok else "Failed")
     flag = "MSN{3ncrypt3d_Sh4r3d_Pr3f3r3nc3s_FTW}" if f_ok and s_ok else ""
 
     report = {
