@@ -7,6 +7,9 @@
 # nested repo backup
 msn-android-tasks/.git.disabled/
 
+# reference solutions (local only, never ship)
+**/solution/
+
 # reference screenshots (local only)
 example/
 
