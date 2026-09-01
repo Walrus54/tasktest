@@ -18,5 +18,5 @@
 
 ## Файлы для исправления
 
-- `AndroidManifest.xml`
-- `DeepLinks.kt`
+- `src/AndroidManifest.xml`
+- `src/DeepLinks.kt`

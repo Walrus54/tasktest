@@ -21,4 +21,4 @@
 
 ## Файл для исправления
 
-- `SessionStore.kt`
+- `src/SessionStore.kt`

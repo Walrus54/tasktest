@@ -22,4 +22,4 @@
 
 ## Файл для исправления
 
-- `Cryptor.swift`
+- `src/Cryptor.swift`

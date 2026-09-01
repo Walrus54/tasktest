@@ -19,4 +19,4 @@
 
 ## Файл для исправления
 
-- `CredentialStore.swift`
+- `src/CredentialStore.swift`
